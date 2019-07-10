@@ -1,0 +1,14 @@
+Package:create-project
+Version: 0.7
+Priority:
+Architecture: all
+Essential:
+Depends:
+Pre-depends:
+Suggests:
+Installed-Size:
+Maintainer: Ederlo Rodrigo de Oliveira
+Conflicts:
+Replaces:
+Provides:
+Description: Vhost

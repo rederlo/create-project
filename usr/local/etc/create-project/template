@@ -1,0 +1,46 @@
+<VirtualHost *:80>
+    ServerAdmin template.email
+
+    ServerName template.url
+    DocumentRoot template.docroot
+    <Directory />
+        Options FollowSymLinks
+        AllowOverride All
+    </Directory>
+
+    <Directory template.docroot/>
+        Options Indexes FollowSymLinks MultiViews
+        AllowOverride All
+        Order allow,deny
+        allow from All
+    </Directory>
+
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    LogLevel debug
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+
+<VirtualHost *:443>
+    SSLEngine on
+    SSLCertificateFile /usr/local/etc/ssl/certs/tnb.pem
+    SSLCertificateKeyFile /usr/local/etc/ssl/certs/tnb.pem
+    ServerAdmin template.email
+
+    ServerName template.url
+    DocumentRoot template.docroot
+    <Directory />
+        Options FollowSymLinks
+        AllowOverride All
+    </Directory>
+
+    <Directory template.docroot/>
+        Options Indexes FollowSymLinks MultiViews
+        AllowOverride All
+        Order allow,deny
+        allow from All
+    </Directory>
+
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    LogLevel debug
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
