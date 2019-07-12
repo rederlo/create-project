@@ -114,7 +114,15 @@ sudo sed -i 's#template.docroot#'$docroot'#g' /etc/apache2/sites-available/$name
 echo "Adding $url to the /etc/hosts file..."
 
 sudo sed -i '1s/^/127.0.0.1       '$url'\n/' /etc/hosts
-sudo a2enconf ssl
+
+if apache2ctl -M | grep ssl_module &> /dev/null;
+then
+	echo "Module Loading"
+else	
+	echo "Loading module ssl"
+ 	sudo a2enconf ssl
+fi
+
 sudo a2ensite $name.conf
 sudo service apache2 reload
 
